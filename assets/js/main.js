@@ -1,4 +1,11 @@
 (() => {
+  const heroVideo = document.getElementById("heroVideo");
+
+  if (heroVideo && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    heroVideo.removeAttribute("autoplay");
+    heroVideo.pause();
+  }
+
   const toggle = document.getElementById("navToggle");
   const menu = document.getElementById("mobileMenu");
 
