@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GG EZ — Find Your Squad</title>
+  <meta name="description" content="GG EZ matches competitive shooter players into squads that actually stick around. Rank-matched, mic-on, same region, no griefers." />
+  <meta name="theme-color" content="#0a0a0f" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav">
+    <div class="container">
+      <a href="#" class="brand">
+        <span class="brand-mark">GG</span>
+        GG EZ
+      </a>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#features">Features</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#community">Community</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="#cta" class="btn btn-primary btn-sm">Find Your Squad</a>
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
+          <svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M228,128a12,12,0,0,1-12,12H40a12,12,0,0,1,0-24H216A12,12,0,0,1,228,128ZM40,76H216a12,12,0,0,0,0-24H40a12,12,0,0,0,0,24ZM216,180H40a12,12,0,0,0,0,24H216a12,12,0,0,0,0-24Z"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#features">Features</a>
+    <a href="#how-it-works">How It Works</a>
+    <a href="#community">Community</a>
+    <a href="#cta" class="btn btn-primary">Find Your Squad</a>
+  </div>
+
+  <main>
+
+    <!-- ============ HERO — asymmetric split ============ -->
+    <section class="hero">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-grid" aria-hidden="true"></div>
+
+      <div class="container">
+        <div class="hero-copy">
+          <span class="eyebrow">LFG, Solved</span>
+          <h1 class="display">Your Aim Is Fine.<br />Your Team Wasn't.</h1>
+          <p>GG EZ matches you with teammates who actually communicate, flank, and show up. Rank up, not rage quit.</p>
+
+          <div class="hero-actions">
+            <a href="#cta" class="btn btn-primary">Find Your Squad</a>
+            <a href="#how-it-works" class="btn btn-ghost">See How It Works</a>
+          </div>
+        </div>
+
+        <div class="squad-card" data-reveal>
+          <div class="squad-card-top">
+            <span class="squad-card-title">Squad Finder</span>
+            <span class="live-pill"><span class="live-dot"></span>Matching Now</span>
+          </div>
+
+          <div class="roster">
+            <div class="roster-row is-you">
+              <span class="avatar" style="background:var(--accent);color:var(--on-accent);">YOU</span>
+              <div>
+                <div class="roster-name">You</div>
+                <div class="roster-role">Duelist</div>
+              </div>
+              <span class="roster-rank">Diamond II</span>
+            </div>
+
+            <div class="roster-row">
+              <span class="avatar" style="background:var(--bg-elevated-2);color:var(--accent);">RV</span>
+              <div>
+                <div class="roster-name">Rook_Vega</div>
+                <div class="roster-role">In-Game Lead</div>
+              </div>
+              <span class="roster-rank">Diamond III</span>
+            </div>
+
+            <div class="roster-row">
+              <span class="avatar" style="background:var(--bg-elevated-2);color:var(--accent);">SX</span>
+              <div>
+                <div class="roster-name">sable.exe</div>
+                <div class="roster-role">Sentinel</div>
+              </div>
+              <span class="roster-rank">Platinum I</span>
+            </div>
+
+            <div class="roster-row">
+              <span class="avatar" style="background:var(--bg-elevated-2);color:var(--accent);">NE</span>
+              <div>
+                <div class="roster-name">NoScope_Emi</div>
+                <div class="roster-role">Flex</div>
+              </div>
+              <span class="roster-rank">Diamond I</span>
+            </div>
+          </div>
+
+          <div class="squad-card-footer">
+            <span>Avg. time to match</span>
+            <strong>1m 52s</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STAT STRIP ============ -->
+    <section class="stat-strip section--tight">
+      <div class="container">
+        <div>
+          <div class="stat-value">14,200+</div>
+          <div class="stat-label">squads formed this season</div>
+        </div>
+        <div>
+          <div class="stat-value">38</div>
+          <div class="stat-label">regions matched daily</div>
+        </div>
+        <div>
+          <div class="stat-value">1m 52s</div>
+          <div class="stat-label">average time to match</div>
+        </div>
+        <div>
+          <div class="stat-value">4.6 / 5</div>
+          <div class="stat-label">average squad rating</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FEATURES — bento, 5 cells, exact fit ============ -->
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow">Why GG EZ</span>
+          <h2 class="display">Built For Squads That Actually Win</h2>
+          <p>No more one-off duo queues with someone who ghosts after a single loss. Every match here is built to become your next main squad.</p>
+        </div>
+
+        <div class="bento">
+          <article class="bento-item bento-item--lg" data-reveal>
+            <div>
+              <span class="bento-icon">
+                <svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M128,60a44,44,0,1,0,44,44A44.05,44.05,0,0,0,128,60Zm0,64a20,20,0,1,1,20-20A20,20,0,0,1,128,124Zm0-112a92.1,92.1,0,0,0-92,92c0,77.36,81.64,135.4,85.12,137.83a12,12,0,0,0,13.76,0,259,259,0,0,0,42.18-39C205.15,170.57,220,136.37,220,104A92.1,92.1,0,0,0,128,12Zm31.3,174.71A249.35,249.35,0,0,1,128,216.89a249.35,249.35,0,0,1-31.3-30.18C80,167.37,60,137.31,60,104a68,68,0,0,1,136,0C196,137.31,176,167.37,159.3,186.71Z"/></svg>
+              </span>
+              <h3>Rank-Matched, Not Random</h3>
+              <p>We pair you with players inside your actual skill band, not whoever else happened to click queue at the same second.</p>
+            </div>
+          </article>
+
+          <article class="bento-item" data-reveal>
+            <span class="bento-icon">
+              <svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M176,116H152a12,12,0,0,1,0-24h24a12,12,0,0,1,0,24ZM104,92h-4V88a12,12,0,0,0-24,0v4H72a12,12,0,0,0,0,24h4v4a12,12,0,0,0,24,0v-4h4a12,12,0,0,0,0-24ZM244.76,202.94a40,40,0,0,1-61,5.35,7,7,0,0,1-.53-.56L144.67,164H111.33L72.81,207.73c-.17.19-.35.38-.53.56A40,40,0,0,1,4.62,173.05a1.18,1.18,0,0,1,0-.2L21,88.79A63.88,63.88,0,0,1,83.88,36H172a64.08,64.08,0,0,1,62.93,52.48,1.8,1.8,0,0,1,0,.19l16.36,84.17a1.77,1.77,0,0,1,0,.2A39.74,39.74,0,0,1,244.76,202.94ZM172,140a40,40,0,0,0,0-80H83.89A39.9,39.9,0,0,0,44.62,93.06a1.55,1.55,0,0,0,0,.21l-16.34,84a16,16,0,0,0,13,18.44,16.07,16.07,0,0,0,13.86-4.21L96.9,144.07a12,12,0,0,1,9-4.07Zm55.76,37.31-7-35.95a63.84,63.84,0,0,1-44.27,22.46l24.41,27.72a16,16,0,0,0,26.85-14.23Z"/></svg>
+            </span>
+            <h3>Mic-On Lobbies</h3>
+            <p>Every squad here talks. Filter out mute queues before you even join.</p>
+          </article>
+
+          <article class="bento-item" data-reveal>
+            <span class="bento-icon">
+              <svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M128,60a44,44,0,1,0,44,44A44.05,44.05,0,0,0,128,60Zm0,64a20,20,0,1,1,20-20A20,20,0,0,1,128,124Zm0-112a92.1,92.1,0,0,0-92,92c0,77.36,81.64,135.4,85.12,137.83a12,12,0,0,0,13.76,0,259,259,0,0,0,42.18-39C205.15,170.57,220,136.37,220,104A92.1,92.1,0,0,0,128,12Z"/></svg>
+            </span>
+            <h3>Same Region, Same Hours</h3>
+            <p>Matched on ping and play-time overlap, not just which server region you picked.</p>
+          </article>
+
+          <article class="bento-item" data-reveal>
+            <span class="bento-icon">
+              <svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M208,36H48A20,20,0,0,0,28,56v56c0,54.29,26.32,87.22,48.4,105.29,23.71,19.39,47.44,26,48.44,26.29a12.1,12.1,0,0,0,6.32,0c1-.28,24.73-6.9,48.44-26.29,22.08-18.07,48.4-51,48.4-105.29V56A20,20,0,0,0,208,36Zm-4,76c0,35.71-13.09,64.69-38.91,86.15A126.28,126.28,0,0,1,128,219.38a126.14,126.14,0,0,1-37.09-21.23C65.09,176.69,52,147.71,52,112V60H204ZM79.51,144.49a12,12,0,1,1,17-17L112,143l47.51-47.52a12,12,0,0,1,17,17l-56,56a12,12,0,0,1-17,0Z"/></svg>
+            </span>
+            <h3>Griefers Get Filtered</h3>
+            <p>Community reports and no-show tracking keep toxic squads out of rotation.</p>
+          </article>
+
+          <article class="bento-item" data-reveal>
+            <span class="bento-icon">
+              <svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M108,136a16,16,0,1,1-16-16A16,16,0,0,1,108,136Zm56-16a16,16,0,1,0,16,16A16,16,0,0,0,164,120Zm76.07,76.56-67,29.71A20.15,20.15,0,0,1,146,214.9l-8.54-23.13c-3.13.14-6.27.24-9.45.24s-6.32-.1-9.45-.24L110,214.9a20.19,20.19,0,0,1-27.08,11.37l-67-29.71A19.93,19.93,0,0,1,4.62,173.41L34.15,57A20,20,0,0,1,50.37,42.19l36.06-5.93A20.26,20.26,0,0,1,109.22,51.1l4.41,17.41c4.74-.33,9.52-.51,14.37-.51s9.63.18,14.37.51l4.41-17.41a20.25,20.25,0,0,1,22.79-14.84l36.06,5.93A20,20,0,0,1,221.85,57l29.53,116.38A19.93,19.93,0,0,1,240.07,196.56Z"/></svg>
+            </span>
+            <h3>Run It Back</h3>
+            <p>Good squad? Save it. Queue with the same four next session, no re-matching.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HOW IT WORKS — process rail ============ -->
+    <section class="section" id="how-it-works">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <h2 class="display">Three Steps To Your Next Five-Stack</h2>
+          <p>No lengthy sign-up, no personality quiz. Just the stuff that actually matters when you're picking teammates.</p>
+        </div>
+
+        <div class="rail">
+          <div class="rail-step" data-reveal>
+            <div class="rail-marker">
+              <span class="rail-num">
+                <svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M228,128a12,12,0,0,1-12,12H40a12,12,0,0,1,0-24H216A12,12,0,0,1,228,128ZM40,76H216a12,12,0,0,0,0-24H40a12,12,0,0,0,0,24ZM216,180H40a12,12,0,0,0,0,24H216a12,12,0,0,0,0-24Z"/></svg>
+              </span>
+            </div>
+            <div class="rail-body">
+              <h3>Drop Your Rank And Roles</h3>
+              <p>Tell us your rank, your main roles, and the hours you actually play. Takes under a minute, no essay required.</p>
+            </div>
+          </div>
+
+          <div class="rail-step" data-reveal>
+            <div class="rail-marker">
+              <span class="rail-num">
+                <svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M164.38,181.1a52,52,0,1,0-72.76,0,75.89,75.89,0,0,0-30,28.89,12,12,0,0,0,20.78,12,53,53,0,0,1,91.22,0,12,12,0,1,0,20.78-12A75.89,75.89,0,0,0,164.38,181.1ZM100,144a28,28,0,1,1,28,28A28,28,0,0,1,100,144Z"/></svg>
+              </span>
+            </div>
+            <div class="rail-body">
+              <h3>Get Matched In Minutes</h3>
+              <p>Our queue pairs you with four players in your bracket who are online right now and looking for the same thing.</p>
+            </div>
+          </div>
+
+          <div class="rail-step" data-reveal>
+            <div class="rail-marker">
+              <span class="rail-num">
+                <svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M232,116h-4.72A100.21,100.21,0,0,0,140,28.72V24a12,12,0,0,0-24,0v4.72A100.21,100.21,0,0,0,28.72,116H24a12,12,0,0,0,0,24h4.72A100.21,100.21,0,0,0,116,227.28V232a12,12,0,0,0,24,0v-4.72A100.21,100.21,0,0,0,227.28,140H232a12,12,0,0,0,0-24Z"/></svg>
+              </span>
+            </div>
+            <div class="rail-body">
+              <h3>Queue Up And Clutch It</h3>
+              <p>Jump into a party, warm up together, and go fight for the point. If it clicks, save the squad for next time.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ QUOTES ============ -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <h2 class="display">Squads That Stuck</h2>
+        </div>
+
+        <div class="quotes">
+          <article class="quote-card quote-card--accent" data-reveal>
+            <div>
+              <div class="quote-stars" aria-hidden="true">
+                <svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M243,96a20.33,20.33,0,0,0-17.74-14l-56.59-4.57L146.83,24.62a20.36,20.36,0,0,0-37.66,0L87.35,77.44,30.76,82A20.45,20.45,0,0,0,19.1,117.88l43.18,37.24-13.2,55.7A20.37,20.37,0,0,0,79.57,233L128,203.19,176.43,233a20.39,20.39,0,0,0,30.49-22.15l-13.2-55.7,43.18-37.24A20.43,20.43,0,0,0,243,96Z"/></svg>
+                <svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M243,96a20.33,20.33,0,0,0-17.74-14l-56.59-4.57L146.83,24.62a20.36,20.36,0,0,0-37.66,0L87.35,77.44,30.76,82A20.45,20.45,0,0,0,19.1,117.88l43.18,37.24-13.2,55.7A20.37,20.37,0,0,0,79.57,233L128,203.19,176.43,233a20.39,20.39,0,0,0,30.49-22.15l-13.2-55.7,43.18-37.24A20.43,20.43,0,0,0,243,96Z"/></svg>
+                <svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M243,96a20.33,20.33,0,0,0-17.74-14l-56.59-4.57L146.83,24.62a20.36,20.36,0,0,0-37.66,0L87.35,77.44,30.76,82A20.45,20.45,0,0,0,19.1,117.88l43.18,37.24-13.2,55.7A20.37,20.37,0,0,0,79.57,233L128,203.19,176.43,233a20.39,20.39,0,0,0,30.49-22.15l-13.2-55.7,43.18-37.24A20.43,20.43,0,0,0,243,96Z"/></svg>
+                <svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M243,96a20.33,20.33,0,0,0-17.74-14l-56.59-4.57L146.83,24.62a20.36,20.36,0,0,0-37.66,0L87.35,77.44,30.76,82A20.45,20.45,0,0,0,19.1,117.88l43.18,37.24-13.2,55.7A20.37,20.37,0,0,0,79.57,233L128,203.19,176.43,233a20.39,20.39,0,0,0,30.49-22.15l-13.2-55.7,43.18-37.24A20.43,20.43,0,0,0,243,96Z"/></svg>
+                <svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M243,96a20.33,20.33,0,0,0-17.74-14l-56.59-4.57L146.83,24.62a20.36,20.36,0,0,0-37.66,0L87.35,77.44,30.76,82A20.45,20.45,0,0,0,19.1,117.88l43.18,37.24-13.2,55.7A20.37,20.37,0,0,0,79.57,233L128,203.19,176.43,233a20.39,20.39,0,0,0,30.49-22.15l-13.2-55.7,43.18-37.24A20.43,20.43,0,0,0,243,96Z"/></svg>
+              </div>
+              <p class="quote-text">"Found four people who actually rotate as a unit. Hit Diamond six weeks after a year of maining solo queue."</p>
+            </div>
+            <div class="quote-attrib">
+              <span class="avatar" style="background:var(--accent);color:var(--on-accent);">CR</span>
+              <div>
+                <strong>ClutchGod_Rae</strong>
+                <span>Diamond II</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="quote-card" data-reveal>
+            <div>
+              <div class="quote-stars" aria-hidden="true">
+                <svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M243,96a20.33,20.33,0,0,0-17.74-14l-56.59-4.57L146.83,24.62a20.36,20.36,0,0,0-37.66,0L87.35,77.44,30.76,82A20.45,20.45,0,0,0,19.1,117.88l43.18,37.24-13.2,55.7A20.37,20.37,0,0,0,79.57,233L128,203.19,176.43,233a20.39,20.39,0,0,0,30.49-22.15l-13.2-55.7,43.18-37.24A20.43,20.43,0,0,0,243,96Z"/></svg>
+                <svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M243,96a20.33,20.33,0,0,0-17.74-14l-56.59-4.57L146.83,24.62a20.36,20.36,0,0,0-37.66,0L87.35,77.44,30.76,82A20.45,20.45,0,0,0,19.1,117.88l43.18,37.24-13.2,55.7A20.37,20.37,0,0,0,79.57,233L128,203.19,176.43,233a20.39,20.39,0,0,0,30.49-22.15l-13.2-55.7,43.18-37.24A20.43,20.43,0,0,0,243,96Z"/></svg>
+                <svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M243,96a20.33,20.33,0,0,0-17.74-14l-56.59-4.57L146.83,24.62a20.36,20.36,0,0,0-37.66,0L87.35,77.44,30.76,82A20.45,20.45,0,0,0,19.1,117.88l43.18,37.24-13.2,55.7A20.37,20.37,0,0,0,79.57,233L128,203.19,176.43,233a20.39,20.39,0,0,0,30.49-22.15l-13.2-55.7,43.18-37.24A20.43,20.43,0,0,0,243,96Z"/></svg>
+                <svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M243,96a20.33,20.33,0,0,0-17.74-14l-56.59-4.57L146.83,24.62a20.36,20.36,0,0,0-37.66,0L87.35,77.44,30.76,82A20.45,20.45,0,0,0,19.1,117.88l43.18,37.24-13.2,55.7A20.37,20.37,0,0,0,79.57,233L128,203.19,176.43,233a20.39,20.39,0,0,0,30.49-22.15l-13.2-55.7,43.18-37.24A20.43,20.43,0,0,0,243,96Z"/></svg>
+                <svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M243,96a20.33,20.33,0,0,0-17.74-14l-56.59-4.57L146.83,24.62a20.36,20.36,0,0,0-37.66,0L87.35,77.44,30.76,82A20.45,20.45,0,0,0,19.1,117.88l43.18,37.24-13.2,55.7A20.37,20.37,0,0,0,79.57,233L128,203.19,176.43,233a20.39,20.39,0,0,0,30.49-22.15l-13.2-55.7,43.18-37.24A20.43,20.43,0,0,0,243,96Z"/></svg>
+              </div>
+              <p class="quote-text">"No more solo-queue anxiety. My squad shows up every night around nine."</p>
+            </div>
+            <div class="quote-attrib">
+              <span class="avatar" style="background:var(--bg-elevated-2);color:var(--accent);">V</span>
+              <div>
+                <strong>Vantage</strong>
+                <span>Immortal</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PLATFORMS ============ -->
+    <section class="section" id="community">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <h2 class="display">Built Where Gamers Already Hang Out</h2>
+          <p>Squads formed on GG EZ move straight into voice. No extra app to install, no new account to manage.</p>
+        </div>
+
+        <div class="platforms" data-reveal>
+          <a href="#" class="platform-link">
+            <svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M168,12A75.9,75.9,0,0,0,92.49,96.33L23.91,189.85a19.89,19.89,0,0,0,2,26l14.29,14.29a19.89,19.89,0,0,0,26,2l93.52-68.58A76,76,0,1,0,168,12Z"/></svg>
+            Discord
+          </a>
+          <a href="#" class="platform-link">
+            <svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M208,28H48A20,20,0,0,0,28,48V192a20,20,0,0,0,20,20H60v28a12,12,0,0,0,19.68,9.22L124.34,212H165.1a20.06,20.06,0,0,0,12.81-4.64l42.89-35.74a19.93,19.93,0,0,0,7.2-15.37V48A20,20,0,0,0,208,28Z"/></svg>
+            Twitch
+          </a>
+          <a href="#" class="platform-link">
+            <svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M164.44,105.34l-48-32A6,6,0,0,0,107,78v64a6,6,0,0,0,9.44,4.93l48-32a5.99,5.99,0,0,0,0-9.92ZM128,208A80,80,0,1,1,208,128,80.09,80.09,0,0,1,128,208Zm94.75-146.11a24,24,0,0,0-16.94-17C185.57,40,128,40,128,40s-57.57,0-77.81,4.92a24,24,0,0,0-16.94,17C28,82.13,28,128,28,128s0,45.87,5.25,63.11a24,24,0,0,0,16.94,17C70.43,213,128,213,128,213s57.57,0,77.81-4.92a24,24,0,0,0,16.94-17C228,169.87,228,128,228,128S228,82.13,222.75,61.89Z"/></svg>
+            YouTube
+          </a>
+          <a href="#" class="platform-link">
+            <svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M218.12,209.56l-61-95.8,59.72-65.69a12,12,0,0,0-17.76-16.14L143.81,92.77,106.12,33.56A12,12,0,0,0,96,28H48A12,12,0,0,0,37.88,46.44l61,95.8L39.12,207.93a12,12,0,1,0,17.76,16.14l55.31-60.84,37.69,59.21A12,12,0,0,0,160,228h48a12,12,0,0,0,10.12-18.44Z"/></svg>
+            X
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FINAL CTA ============ -->
+    <section class="section--tight" id="cta">
+      <div class="cta" data-reveal>
+        <div class="cta-glow" aria-hidden="true"></div>
+        <div class="cta-inner">
+          <h2 class="display">Stop Queuing With Strangers</h2>
+          <p>Set your rank and roles once. GG EZ finds four people who actually want to win, not just vibes.</p>
+          <div class="cta-actions">
+            <a href="#" class="btn btn-primary">Find Your Squad</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#" class="brand">
+            <span class="brand-mark">GG</span>
+            GG EZ
+          </a>
+          <p>GG EZ matches competitive shooter players into squads that stick around past one match.</p>
+          <div class="footer-socials">
+            <a href="#" class="footer-social-link" aria-label="Discord">
+              <svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M168,12A75.9,75.9,0,0,0,92.49,96.33L23.91,189.85a19.89,19.89,0,0,0,2,26l14.29,14.29a19.89,19.89,0,0,0,26,2l93.52-68.58A76,76,0,1,0,168,12Z"/></svg>
+            </a>
+            <a href="#" class="footer-social-link" aria-label="Twitch">
+              <svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M208,28H48A20,20,0,0,0,28,48V192a20,20,0,0,0,20,20H60v28a12,12,0,0,0,19.68,9.22L124.34,212H165.1a20.06,20.06,0,0,0,12.81-4.64l42.89-35.74a19.93,19.93,0,0,0,7.2-15.37V48A20,20,0,0,0,208,28Z"/></svg>
+            </a>
+            <a href="#" class="footer-social-link" aria-label="YouTube">
+              <svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M222.75,61.89a24,24,0,0,0-16.94-17C185.57,40,128,40,128,40s-57.57,0-77.81,4.92a24,24,0,0,0-16.94,17C28,82.13,28,128,28,128s0,45.87,5.25,63.11a24,24,0,0,0,16.94,17C70.43,213,128,213,128,213s57.57,0,77.81-4.92a24,24,0,0,0,16.94-17C228,169.87,228,128,228,128S228,82.13,222.75,61.89ZM107,142V78l48,32Z"/></svg>
+            </a>
+            <a href="#" class="footer-social-link" aria-label="X">
+              <svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M218.12,209.56l-61-95.8,59.72-65.69a12,12,0,0,0-17.76-16.14L143.81,92.77,106.12,33.56A12,12,0,0,0,96,28H48A12,12,0,0,0,37.88,46.44l61,95.8L39.12,207.93a12,12,0,1,0,17.76,16.14l55.31-60.84,37.69,59.21A12,12,0,0,0,160,228h48a12,12,0,0,0,10.12-18.44Z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#community">Community</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Community</h4>
+          <ul>
+            <li><a href="#">Discord Server</a></li>
+            <li><a href="#">Squad Leaderboard</a></li>
+            <li><a href="#">Report A Player</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms Of Service</a></li>
+            <li><a href="#">Community Guidelines</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 GG EZ. Fan-made concept, not affiliated with or endorsed by any game publisher.</span>
+        <span>Built for squads, not solo queue.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
