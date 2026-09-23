@@ -68,6 +68,11 @@
         color: var(--text);
       }
 
+      svg.icon {
+        display: block;
+        fill: currentColor;
+      }
+
       /* ---------- persistent background ---------- */
       #bg {
         position: absolute;
@@ -109,56 +114,6 @@
         filter: blur(30px);
         will-change: transform;
       }
-      .reticle {
-        position: absolute;
-        border: 2px solid rgba(255, 47, 118, 0.22);
-        border-radius: 50%;
-        will-change: transform;
-      }
-      .reticle::before,
-      .reticle::after {
-        content: "";
-        position: absolute;
-        background: rgba(255, 47, 118, 0.22);
-      }
-      .reticle::before {
-        left: 50%;
-        top: -14px;
-        bottom: -14px;
-        width: 2px;
-        transform: translateX(-50%);
-      }
-      .reticle::after {
-        top: 50%;
-        left: -14px;
-        right: -14px;
-        height: 2px;
-        transform: translateY(-50%);
-      }
-      #reticle-1 {
-        width: 140px;
-        height: 140px;
-        top: 120px;
-        right: 220px;
-        opacity: 0;
-      }
-      #reticle-2 {
-        width: 90px;
-        height: 90px;
-        bottom: 260px;
-        left: 160px;
-        opacity: 0;
-      }
-
-      /* flash overlay for hard-cut punctuation */
-      #flash {
-        position: absolute;
-        inset: 0;
-        background: var(--text);
-        opacity: 0;
-        pointer-events: none;
-        z-index: 50;
-      }
 
       /* ---------- bottom ticker ---------- */
       #ticker {
@@ -195,6 +150,44 @@
         margin: 0 28px;
       }
 
+      /* ---------- transition layers ---------- */
+      #flash {
+        position: absolute;
+        inset: 0;
+        background: var(--accent);
+        opacity: 0;
+        pointer-events: none;
+        z-index: 45;
+      }
+      #wipe-panel {
+        position: absolute;
+        inset: 0;
+        background: var(--bg-elevated);
+        transform: scaleX(0);
+        transform-origin: 0% 50%;
+        pointer-events: none;
+        z-index: 44;
+      }
+      #wipe-circle-wrap {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        pointer-events: none;
+        z-index: 46;
+      }
+      #wipe-circle {
+        position: absolute;
+        width: 3200px;
+        height: 3200px;
+        left: 50%;
+        top: 50%;
+        margin-left: -1600px;
+        margin-top: -1600px;
+        border-radius: 50%;
+        background: var(--accent-2);
+        transform: scale(0);
+      }
+
       /* ---------- scenes ---------- */
       .scene {
         position: absolute;
@@ -204,45 +197,133 @@
         justify-content: center;
       }
 
-      .display-text {
-        font-family: "Rajdhani", sans-serif;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.005em;
-        text-align: center;
-        line-height: 1.05;
-        color: var(--text);
-      }
-      .display-text .word {
-        display: inline-block;
-        opacity: 0;
-        will-change: transform, opacity;
-      }
-
-      .hook-line {
-        font-size: 148px;
-        max-width: 1650px;
-      }
-
-      .feature-wrap {
+      .stage {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 26px;
+        gap: 22px;
       }
-      .feature-line {
-        font-size: 132px;
-        max-width: 1750px;
+
+      .eyebrow-word {
+        font-family: "Rajdhani", sans-serif;
+        font-weight: 600;
+        font-size: 40px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--text-dim);
+        opacity: 0;
+        will-change: transform, opacity;
       }
-      .underline {
-        width: 0;
-        height: 8px;
-        border-radius: 999px;
-        background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      .hero-word {
+        font-family: "Rajdhani", sans-serif;
+        font-weight: 700;
+        font-size: 216px;
+        letter-spacing: -0.01em;
+        text-transform: uppercase;
+        line-height: 0.95;
+        color: var(--text);
+        opacity: 0;
+        will-change: transform, opacity;
+      }
+      .hero-word.is-crack {
+        color: var(--accent);
+      }
+
+      .icon-visual {
+        position: relative;
+        width: 220px;
+        height: 220px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .icon-visual .icon-ring {
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        border: 3px solid var(--accent-border);
+        opacity: 0;
+      }
+      .icon-visual .icon-core {
+        position: relative;
+        width: 132px;
+        height: 132px;
+        border-radius: 32px;
+        background: var(--bg-elevated);
+        border: 2px solid var(--border-strong);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--accent);
+        opacity: 0;
+        will-change: transform, opacity;
+      }
+      .icon-core svg.icon {
+        width: 68px;
+        height: 68px;
+      }
+
+      /* mic soundwave */
+      .wave {
+        display: flex;
+        align-items: flex-end;
+        gap: 8px;
+        height: 60px;
+      }
+      .wave-bar {
+        width: 10px;
+        border-radius: 6px;
+        background: var(--accent-2);
+        transform-origin: 50% 100%;
+      }
+
+      /* blocked icon (griefer x) */
+      .blocked-icon {
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        border-radius: 16px;
+        background: rgba(255, 47, 118, 0.18);
+        border: 2px solid var(--accent-border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--accent);
+        opacity: 0;
+      }
+      .blocked-icon svg.icon {
+        width: 30px;
+        height: 30px;
+      }
+
+      /* orbiting mini avatars for run-it-back */
+      .orbit-wrap {
+        position: absolute;
+        inset: 0;
+      }
+      .orbit-avatar {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        background: var(--bg-elevated-2);
+        border: 2px solid var(--accent-border);
+        left: 50%;
+        top: 50%;
+        margin: -20px 0 0 -20px;
+        opacity: 0;
       }
 
       /* ---------- squad card scene ---------- */
+      .lock-ring {
+        position: absolute;
+        border-radius: 50%;
+        border: 3px solid var(--accent-border);
+        opacity: 0;
+        pointer-events: none;
+      }
       #squad-card {
+        position: relative;
         width: 1180px;
         background: var(--bg-elevated);
         border: 2px solid var(--border-strong);
@@ -369,23 +450,50 @@
         color: var(--accent);
       }
 
-      /* ---------- stat scene ---------- */
+      /* ---------- stat scene (ring + count-up) ---------- */
       .stat-row {
         display: flex;
-        gap: 96px;
+        gap: 90px;
       }
       .stat-item {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 14px;
+        gap: 16px;
         opacity: 0;
         will-change: transform, opacity;
       }
+      .ring-wrap {
+        position: relative;
+        width: 168px;
+        height: 168px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .ring-svg {
+        position: absolute;
+        inset: 0;
+        transform: rotate(-90deg);
+      }
+      .ring-track {
+        fill: none;
+        stroke: var(--border-strong);
+        stroke-width: 8;
+      }
+      .ring-fill {
+        fill: none;
+        stroke: var(--accent);
+        stroke-width: 8;
+        stroke-linecap: round;
+        stroke-dasharray: 326.7;
+        stroke-dashoffset: 326.7;
+      }
       .stat-value {
+        position: relative;
         font-family: "Rajdhani", sans-serif;
         font-weight: 700;
-        font-size: 104px;
+        font-size: 46px;
         letter-spacing: -0.01em;
         color: var(--text);
         font-variant-numeric: tabular-nums;
@@ -393,7 +501,7 @@
       .stat-label {
         font-family: "Rajdhani", sans-serif;
         font-weight: 600;
-        font-size: 28px;
+        font-size: 26px;
         letter-spacing: 0.1em;
         text-transform: uppercase;
         color: var(--accent);
@@ -422,6 +530,16 @@
       }
       #logo-space {
         width: 46px;
+      }
+      .logo-ray {
+        position: absolute;
+        width: 3px;
+        height: 260px;
+        background: linear-gradient(var(--accent), transparent);
+        left: 50%;
+        top: 50%;
+        opacity: 0;
+        transform-origin: 50% 0%;
       }
       #outro-tagline-wrap {
         display: inline-flex;
@@ -469,9 +587,6 @@
           <div id="bg-glow-a"></div>
           <div id="bg-glow-b"></div>
         </div>
-        <div class="reticle" id="reticle-1"></div>
-        <div class="reticle" id="reticle-2"></div>
-        <div id="flash"></div>
       </div>
 
       <!-- bottom ticker, whole duration -->
@@ -486,22 +601,46 @@
         </div>
       </div>
 
-      <!-- Scene 1: hook line 1 -->
+      <!-- transition layers, whole duration -->
+      <div id="transitions" class="clip" data-start="0" data-duration="19.99" data-track-index="0">
+        <div id="flash"></div>
+        <div id="wipe-panel"></div>
+        <div id="wipe-circle-wrap"><div id="wipe-circle"></div></div>
+      </div>
+
+      <!-- Scene 1: hook line 1 — crosshair closing in, short hero word -->
       <section id="scene-hook1" class="clip scene" data-start="0" data-duration="2.60" data-track-index="1">
-        <h1 id="hook1-text" class="display-text hook-line">
-          <span class="word">Your</span> <span class="word">Aim</span> <span class="word">Is</span> <span class="word">Fine.</span>
-        </h1>
+        <div class="stage">
+          <div class="icon-visual" id="crosshair-1">
+            <div class="icon-ring" id="ring-1a" style="width:220px;height:220px;"></div>
+            <div class="icon-ring" id="ring-1b" style="width:170px;height:170px;top:25px;left:25px;"></div>
+            <div class="icon-core" id="core-1">
+              <svg class="icon" viewBox="0 0 256 256"><path d="M229.26,90.4a108,108,0,0,1-177.63,114A108,108,0,0,1,195.41,43.63l20.1-20.11a12,12,0,0,1,17,17l-96,96a12,12,0,1,1-17-17l24-24a36,36,0,1,0,19.76,39.65,12,12,0,0,1,23.53,4.74,60,60,0,1,1-25.73-62L178.3,60.74a84,84,0,1,0,28.46,38,12,12,0,1,1,22.5-8.35Z"/></svg>
+            </div>
+          </div>
+          <span class="eyebrow-word" id="hook1-eyebrow">Your Aim Is</span>
+          <span class="hero-word" id="hook1-hero">Fine.</span>
+        </div>
       </section>
 
-      <!-- Scene 2: hook payoff -->
+      <!-- Scene 2: hook payoff — crosshair cracks, short hero word -->
       <section id="scene-hook2" class="clip scene" data-start="2.60" data-duration="1.88" data-track-index="1">
-        <h1 id="hook2-text" class="display-text hook-line">
-          <span class="word">Your</span> <span class="word">Team</span> <span class="word">Wasn't.</span>
-        </h1>
+        <div class="stage">
+          <div class="icon-visual" id="crosshair-2">
+            <div class="icon-core" id="core-2" style="color:var(--accent);">
+              <svg class="icon" viewBox="0 0 256 256"><path d="M208.49,191.51a12,12,0,0,1-17,17L128,145,64.49,208.49a12,12,0,0,1-17-17L111,128,47.51,64.49a12,12,0,0,1,17-17L128,111l63.51-63.52a12,12,0,0,1,17,17L145,128Z"/></svg>
+            </div>
+          </div>
+          <span class="eyebrow-word" id="hook2-eyebrow">Your Team</span>
+          <span class="hero-word is-crack" id="hook2-hero">Wasn't.</span>
+        </div>
       </section>
 
       <!-- Scene 3: Squad Finder reveal -->
       <section id="scene-squad" class="clip scene" data-start="4.48" data-duration="4.45" data-track-index="1">
+        <div class="lock-ring" id="lock-1" style="width:200px;height:200px;"></div>
+        <div class="lock-ring" id="lock-2" style="width:340px;height:340px;"></div>
+        <div class="lock-ring" id="lock-3" style="width:480px;height:480px;"></div>
         <div id="squad-card">
           <div class="squad-card-top">
             <span class="squad-label">Squad Finder</span>
@@ -548,70 +687,128 @@
         </div>
       </section>
 
-      <!-- Scene 4: stat burst -->
+      <!-- Scene 4: stat burst — ring + count-up -->
       <section id="scene-stats" class="clip scene" data-start="8.93" data-duration="2.34" data-track-index="1">
         <div class="stat-row">
           <div class="stat-item" id="stat-1">
-            <span class="stat-value" id="stat-1-val">0</span>
+            <div class="ring-wrap">
+              <svg class="ring-svg" viewBox="0 0 120 120">
+                <circle class="ring-track" cx="60" cy="60" r="52"></circle>
+                <circle class="ring-fill" id="ring-1" cx="60" cy="60" r="52"></circle>
+              </svg>
+              <span class="stat-value" id="stat-1-val">0</span>
+            </div>
             <span class="stat-label">Squads</span>
           </div>
           <div class="stat-item" id="stat-2">
-            <span class="stat-value" id="stat-2-val">0s</span>
+            <div class="ring-wrap">
+              <svg class="ring-svg" viewBox="0 0 120 120">
+                <circle class="ring-track" cx="60" cy="60" r="52"></circle>
+                <circle class="ring-fill" id="ring-2" cx="60" cy="60" r="52"></circle>
+              </svg>
+              <span class="stat-value" id="stat-2-val">0s</span>
+            </div>
             <span class="stat-label">Avg Match</span>
           </div>
           <div class="stat-item" id="stat-3">
-            <span class="stat-value" id="stat-3-val">0 / 5</span>
+            <div class="ring-wrap">
+              <svg class="ring-svg" viewBox="0 0 120 120">
+                <circle class="ring-track" cx="60" cy="60" r="52"></circle>
+                <circle class="ring-fill" id="ring-3" cx="60" cy="60" r="52"></circle>
+              </svg>
+              <span class="stat-value" id="stat-3-val">0/5</span>
+            </div>
             <span class="stat-label">Rating</span>
           </div>
         </div>
       </section>
 
-      <!-- Scene 5: feature claim 1 -->
+      <!-- Scene 5: MIC ON — mic icon + soundwave -->
       <section id="scene-feat1" class="clip scene" data-start="11.27" data-duration="0.93" data-track-index="1">
-        <div class="feature-wrap">
-          <h1 id="feat1-text" class="display-text feature-line">
-            <span class="word">Mic-On</span> <span class="word">Lobbies</span>
-          </h1>
-          <div class="underline" id="feat1-line"></div>
+        <div class="stage">
+          <div class="icon-visual">
+            <div class="icon-core" id="core-mic">
+              <svg class="icon" viewBox="0 0 256 256"><path d="M168,12A75.9,75.9,0,0,0,92.49,96.33L23.91,189.85a19.89,19.89,0,0,0,2,26l14.29,14.29a19.89,19.89,0,0,0,26,2l93.52-68.58A76,76,0,1,0,168,12Zm52,76a51.66,51.66,0,0,1-7.75,27.27L140.74,43.75A52,52,0,0,1,220,88ZM54.72,210.71l-9.43-9.43,56.19-76.63a76.46,76.46,0,0,0,29.87,29.87ZM116,88a51.63,51.63,0,0,1,7.75-27.27l71.51,71.51A52,52,0,0,1,116,88Z"/></svg>
+            </div>
+          </div>
+          <div class="wave" id="wave-1">
+            <div class="wave-bar" style="height:20px;"></div>
+            <div class="wave-bar" style="height:44px;"></div>
+            <div class="wave-bar" style="height:60px;"></div>
+            <div class="wave-bar" style="height:36px;"></div>
+            <div class="wave-bar" style="height:52px;"></div>
+            <div class="wave-bar" style="height:24px;"></div>
+          </div>
+          <span class="eyebrow-word" id="feat1-eyebrow">Every Lobby</span>
+          <span class="hero-word" id="feat1-hero" style="font-size:150px;">Mic On</span>
         </div>
       </section>
 
-      <!-- Scene 6: feature claim 2 -->
+      <!-- Scene 6: REGION — map pin + radar ping -->
       <section id="scene-feat2" class="clip scene" data-start="12.20" data-duration="0.94" data-track-index="1">
-        <div class="feature-wrap">
-          <h1 id="feat2-text" class="display-text feature-line">
-            <span class="word">Same</span> <span class="word">Region,</span> <span class="word">Same</span> <span class="word">Hours</span>
-          </h1>
-          <div class="underline" id="feat2-line"></div>
+        <div class="stage">
+          <div class="icon-visual">
+            <div class="icon-ring" id="ping-1" style="width:220px;height:220px;"></div>
+            <div class="icon-ring" id="ping-2" style="width:220px;height:220px;"></div>
+            <div class="icon-core" id="core-pin">
+              <svg class="icon" viewBox="0 0 256 256"><path d="M128,60a44,44,0,1,0,44,44A44.05,44.05,0,0,0,128,60Zm0,64a20,20,0,1,1,20-20A20,20,0,0,1,128,124Zm0-112a92.1,92.1,0,0,0-92,92c0,77.36,81.64,135.4,85.12,137.83a12,12,0,0,0,13.76,0,259,259,0,0,0,42.18-39C205.15,170.57,220,136.37,220,104A92.1,92.1,0,0,0,128,12Zm31.3,174.71A249.35,249.35,0,0,1,128,216.89a249.35,249.35,0,0,1-31.3-30.18C80,167.37,60,137.31,60,104a68,68,0,0,1,136,0C196,137.31,176,167.37,159.3,186.71Z"/></svg>
+            </div>
+          </div>
+          <span class="eyebrow-word" id="feat2-eyebrow">Matched By</span>
+          <span class="hero-word" id="feat2-hero" style="font-size:150px;">Region</span>
         </div>
       </section>
 
-      <!-- Scene 7: feature claim 3 -->
+      <!-- Scene 7: GRIEFERS — shield blocks an X -->
       <section id="scene-feat3" class="clip scene" data-start="13.14" data-duration="0.94" data-track-index="1">
-        <div class="feature-wrap">
-          <h1 id="feat3-text" class="display-text feature-line">
-            <span class="word">Griefers</span> <span class="word">Get</span> <span class="word">Filtered</span>
-          </h1>
-          <div class="underline" id="feat3-line"></div>
+        <div class="stage">
+          <div class="icon-visual">
+            <div class="blocked-icon" id="blocked-1" style="left:-10px;top:-10px;">
+              <svg class="icon" viewBox="0 0 256 256"><path d="M208.49,191.51a12,12,0,0,1-17,17L128,145,64.49,208.49a12,12,0,0,1-17-17L111,128,47.51,64.49a12,12,0,0,1,17-17L128,111l63.51-63.52a12,12,0,0,1,17,17L145,128Z"/></svg>
+            </div>
+            <div class="icon-core" id="core-shield" style="color:var(--positive);">
+              <svg class="icon" viewBox="0 0 256 256"><path d="M208,36H48A20,20,0,0,0,28,56v56c0,54.29,26.32,87.22,48.4,105.29,23.71,19.39,47.44,26,48.44,26.29a12.1,12.1,0,0,0,6.32,0c1-.28,24.73-6.9,48.44-26.29,22.08-18.07,48.4-51,48.4-105.29V56A20,20,0,0,0,208,36Zm-4,76c0,35.71-13.09,64.69-38.91,86.15A126.28,126.28,0,0,1,128,219.38a126.14,126.14,0,0,1-37.09-21.23C65.09,176.69,52,147.71,52,112V60H204ZM79.51,144.49a12,12,0,1,1,17-17L112,143l47.51-47.52a12,12,0,0,1,17,17l-56,56a12,12,0,0,1-17,0Z"/></svg>
+            </div>
+          </div>
+          <span class="eyebrow-word" id="feat3-eyebrow">Zero</span>
+          <span class="hero-word" id="feat3-hero" style="font-size:150px;">Griefers</span>
         </div>
       </section>
 
-      <!-- Scene 8: feature claim 4 -->
+      <!-- Scene 8: RUN IT BACK — reset arrow + orbiting squad -->
       <section id="scene-feat4" class="clip scene" data-start="14.08" data-duration="0.94" data-track-index="1">
-        <div class="feature-wrap">
-          <h1 id="feat4-text" class="display-text feature-line">
-            <span class="word">Run</span> <span class="word">It</span> <span class="word">Back</span>
-          </h1>
-          <div class="underline" id="feat4-line"></div>
+        <div class="stage">
+          <div class="icon-visual">
+            <div class="orbit-wrap" id="orbit-wrap">
+              <div class="orbit-avatar" id="orbit-1"></div>
+              <div class="orbit-avatar" id="orbit-2"></div>
+              <div class="orbit-avatar" id="orbit-3"></div>
+            </div>
+            <div class="icon-core" id="core-reset">
+              <svg class="icon" viewBox="0 0 256 256"><path d="M244,56v48a12,12,0,0,1-12,12H184a12,12,0,1,1,0-24H201.1l-19-17.38c-.13-.12-.26-.24-.38-.37A76,76,0,1,0,127,204h1a75.53,75.53,0,0,0,52.15-20.72,12,12,0,0,1,16.49,17.45A99.45,99.45,0,0,1,128,228h-1.37A100,100,0,1,1,198.51,57.06L220,76.72V56a12,12,0,0,1,24,0Z"/></svg>
+            </div>
+          </div>
+          <span class="eyebrow-word" id="feat4-eyebrow">Same Five,</span>
+          <span class="hero-word" id="feat4-hero" style="font-size:150px;">Again</span>
         </div>
       </section>
 
       <!-- Scene 9: outro -->
       <section id="scene-outro" class="clip scene" data-start="15.02" data-duration="4.97" data-track-index="1">
         <div id="outro-wrap">
-          <h1 id="logo-text">
-            <span class="letter">G</span><span class="letter">G</span><span id="logo-space"></span><span class="letter">E</span><span class="letter">Z</span>
-          </h1>
+          <div style="position:relative;">
+            <div class="logo-ray" id="ray-1" style="transform:rotate(0deg);"></div>
+            <div class="logo-ray" id="ray-2" style="transform:rotate(45deg);"></div>
+            <div class="logo-ray" id="ray-3" style="transform:rotate(90deg);"></div>
+            <div class="logo-ray" id="ray-4" style="transform:rotate(135deg);"></div>
+            <div class="logo-ray" id="ray-5" style="transform:rotate(180deg);"></div>
+            <div class="logo-ray" id="ray-6" style="transform:rotate(225deg);"></div>
+            <div class="logo-ray" id="ray-7" style="transform:rotate(270deg);"></div>
+            <div class="logo-ray" id="ray-8" style="transform:rotate(315deg);"></div>
+            <h1 id="logo-text">
+              <span class="letter">G</span><span class="letter">G</span><span id="logo-space"></span><span class="letter">E</span><span class="letter">Z</span>
+            </h1>
+          </div>
           <div id="outro-tagline-wrap"><span id="outro-tagline">Find Your Squad</span></div>
           <div id="outro-sub">No More Solo Queue</div>
         </div>
@@ -619,7 +816,6 @@
 
       <!-- ================= AUDIO ================= -->
 
-      <!-- music bed: full track, flat at 0.4, quick fade in the last 0.3s -->
       <audio
         id="music"
         src="assets/music/brag-track.mp3"
@@ -630,7 +826,6 @@
         data-automation='{"version":1,"lanes":[{"target":"volume","points":[{"t":0,"v":0.4},{"t":19.69,"v":0.4},{"t":19.99,"v":0}]}]}'
       ></audio>
 
-      <!-- SFX: one hit per beat-locked reveal -->
       <audio id="sfx-hook1" src="assets/sfx/impact/impactSoft_heavy_001.ogg" data-start="0" data-track-index="11" data-volume="0.8"></audio>
       <audio id="sfx-hook2" src="assets/sfx/impact/impactSoft_heavy_002.ogg" data-start="2.60" data-track-index="12" data-volume="0.82"></audio>
 
@@ -656,35 +851,35 @@
     <script>
       const tl = gsap.timeline({ paused: true });
       const END = 19.99;
+      const RING_CIRC = 326.7;
 
-      // ================= helpers =================
+      // ================= transition helpers ================= //
 
-      // brief full-frame flash at a hard cut, purely visual punctuation
-      function flashCut(t, peak = 0.16, dur = 0.05) {
-        tl.set("#flash", { opacity: 0 }, t)
+      function colorFlash(t, color, peak = 0.5, dur = 0.045) {
+        tl.set("#flash", { backgroundColor: color, opacity: 0 }, t)
           .to("#flash", { opacity: peak, duration: dur, ease: "power1.out" }, t)
-          .to("#flash", { opacity: 0, duration: dur * 2.2, ease: "power1.in" }, t + dur);
+          .to("#flash", { opacity: 0, duration: dur * 2.6, ease: "power1.in" }, t + dur);
       }
 
-      // finite idle "breathing" scale loop filling the rest of a scene's hold
-      function idleBreathe(selector, from, holdStart, holdEnd, amp = 1.02, cycle = 0.7) {
-        const span = holdEnd - holdStart;
-        const reps = Math.max(1, Math.floor(span / cycle));
-        tl.to(
-          selector,
-          { scale: amp, duration: cycle / 2, ease: "sine.inOut", repeat: reps * 2 - 1, yoyo: true },
-          holdStart
-        );
+      // edge wipe: cover before t, flip origin instantly at t (invisible), reveal after t
+      function wipeEdge(t, { color = "var(--bg-elevated)", from = "0% 50%", to = "100% 50%", dur = 0.16 } = {}) {
+        tl.set("#wipe-panel", { backgroundColor: color, transformOrigin: from, scaleX: 0 }, t - dur - 0.02)
+          .to("#wipe-panel", { scaleX: 1, duration: dur, ease: "power2.in" }, t - dur)
+          .set("#wipe-panel", { transformOrigin: to }, t)
+          .to("#wipe-panel", { scaleX: 0, duration: dur, ease: "power2.out" }, t);
+      }
+
+      // circle wipe: symmetric scale cover/reveal from center
+      function circleWipe(t, { color = "var(--accent-2)", dur = 0.17 } = {}) {
+        tl.set("#wipe-circle", { backgroundColor: color, scale: 0 }, t - dur - 0.02)
+          .to("#wipe-circle", { scale: 1, duration: dur, ease: "power2.in" }, t - dur)
+          .to("#wipe-circle", { scale: 0, duration: dur, ease: "power2.out" }, t + 0.01);
       }
 
       // ================= persistent background ================= //
 
-      // slow continuous Ken Burns zoom across the whole video
       tl.fromTo("#bg-zoom", { scale: 1 }, { scale: 1.07, duration: END, ease: "none" }, 0);
 
-      // beat-synced glow pulses (approximated audio-reactive treatment from the
-      // analyzed beat grid — assets/music/cues/brag-track.music-cues.json —
-      // rather than continuous per-frame RMS extraction)
       const glowBeats = [1.2, 2.6, 4.48, 4.96, 5.89, 6.72, 7.99, 8.93, 9.87, 10.8, 11.74, 13.14, 14.55, 15.49, 16.18, 17.37, 18.76];
       glowBeats.forEach((t) => {
         tl.to("#bg-glow-a, #bg-glow-b", { scale: 1.05, duration: 0.11, ease: "power2.out" }, t);
@@ -692,40 +887,41 @@
       });
       gsap.set("#bg-glow-a, #bg-glow-b, #bg-zoom", { transformOrigin: "50% 50%" });
 
-      // drifting reticle accents
-      tl.fromTo("#reticle-1", { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 1, ease: "power2.out" }, 4.48);
-      tl.to("#reticle-1", { y: -34, x: 18, rotation: 12, duration: 15.51, ease: "none" }, 4.48);
-      tl.fromTo("#reticle-2", { opacity: 0, scale: 0.8 }, { opacity: 0.8, scale: 1, duration: 1, ease: "power2.out" }, 6.3);
-      tl.to("#reticle-2", { y: 28, x: -22, rotation: -10, duration: 13.69, ease: "none" }, 6.3);
-
-      // bottom ticker: continuous scroll for the entire video
       tl.fromTo("#ticker-track", { xPercent: 0 }, { xPercent: -50, duration: 6.4, ease: "none", repeat: 3 }, 0);
 
-      // ---------------- Scene 1: hook line 1 — word-stagger slam, cold open ----------------
-      // beat-locked: 0.00s (cold open, matches audio start)
-      flashCut(0, 0.22, 0.04);
-      tl.fromTo(
-        "#hook1-text .word",
-        { opacity: 0, y: 60, scale: 1.3, rotation: -4 },
-        { opacity: 1, y: 0, scale: 1, rotation: 0, duration: 0.34, ease: "back.out(2.4)", stagger: 0.055 },
-        0
-      );
-      idleBreathe("#hook1-text", 1, 0.5, 2.6, 1.015, 0.6);
+      // ---------------- Scene 1: hook — crosshair locks on, "FINE." ---------------- //
+      colorFlash(0, "var(--accent)", 0.5, 0.045);
+      tl.fromTo("#ring-1a", { opacity: 0, scale: 1.8 }, { opacity: 1, scale: 1, duration: 0.36, ease: "power3.out" }, 0);
+      tl.fromTo("#ring-1b", { opacity: 0, scale: 1.6 }, { opacity: 0.7, scale: 1, duration: 0.36, ease: "power3.out" }, 0.06);
+      tl.to("#ring-1a", { rotation: 90, duration: 2.2, ease: "none" }, 0);
+      tl.to("#ring-1b", { rotation: -70, duration: 2.2, ease: "none" }, 0);
+      tl.fromTo("#core-1", { opacity: 0, scale: 0.6, rotation: -30 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.3, ease: "back.out(2.4)" }, 0.12);
+      tl.fromTo("#hook1-eyebrow", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 0.28);
+      tl.fromTo("#hook1-hero", { opacity: 0, y: 40, scale: 1.35 }, { opacity: 1, y: 0, scale: 1, duration: 0.34, ease: "back.out(2.3)" }, 0.42);
+      tl.to("#hook1-hero", { scale: 1.02, duration: 0.55, ease: "sine.inOut", repeat: 3, yoyo: true }, 1.1);
 
-      // ---------------- Scene 2: hook payoff — hard cut + word slam ----------------
-      // beat-locked: 2.60s (beat grid)
-      flashCut(2.6, 0.22, 0.04);
+      // ---------------- Scene 2: hook payoff — crosshair cracks, "WASN'T." ---------------- //
+      wipeEdge(2.6, { color: "var(--bg-elevated)", from: "0% 50%", to: "100% 50%", dur: 0.14 });
       tl.fromTo(
-        "#hook2-text .word",
-        { opacity: 0, y: 60, scale: 1.3, rotation: 4 },
-        { opacity: 1, y: 0, scale: 1, rotation: 0, duration: 0.32, ease: "back.out(2.4)", stagger: 0.06 },
+        "#core-2",
+        { opacity: 0, scale: 1.6, rotation: 0 },
+        { opacity: 1, scale: 1, rotation: 20, duration: 0.3, ease: "back.out(3)" },
         2.6
       );
-      idleBreathe("#hook2-text", 1, 3.05, 4.48, 1.015, 0.6);
+      tl.to("#core-2", { x: 10, duration: 0.08, repeat: 3, yoyo: true, ease: "none" }, 2.72);
+      tl.fromTo("#hook2-eyebrow", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.24, ease: "power2.out" }, 2.72);
+      tl.fromTo(
+        "#hook2-hero",
+        { opacity: 0, y: -36, scale: 1.3, rotation: -3 },
+        { opacity: 1, y: 0, scale: 1, rotation: 0, duration: 0.3, ease: "back.out(2.3)" },
+        2.86
+      );
 
-      // ---------------- Scene 3: Squad Finder — card in, rows sequential, footer, live dot ----------------
-      // beat-locked: 4.48s for the card; rows every-other-beat: 4.96 / 5.89 / 6.72; footer at 7.99
-      flashCut(4.48, 0.2, 0.04);
+      // ---------------- Scene 3: Squad Finder — lock rings, card in, rows, footer, live dot ---------------- //
+      circleWipe(4.48, { color: "var(--accent-2)", dur: 0.16 });
+      ["#lock-1", "#lock-2", "#lock-3"].forEach((sel, i) => {
+        tl.fromTo(sel, { opacity: 0.9, scale: 0.3 }, { opacity: 0, scale: 1, duration: 0.7, ease: "power2.out" }, 4.48 + i * 0.05);
+      });
       tl.fromTo(
         "#squad-card",
         { opacity: 0, y: 50, scale: 0.94, rotationX: 8 },
@@ -743,27 +939,19 @@
       rows.forEach((row) => {
         tl.fromTo(row.id, { opacity: 0, x: -44 }, { opacity: 1, x: 0, duration: 0.34, ease: "power3.out" }, row.t);
       });
-
       tl.fromTo("#squad-footer", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 7.99);
+      tl.to("#live-dot", { scale: 1.6, opacity: 0.55, duration: 0.4, ease: "sine.inOut", repeat: 9, yoyo: true }, 4.48);
 
-      // live pulse dot — finite repeats, GSAP-driven (not a CSS infinite loop)
-      tl.to(
-        "#live-dot",
-        { scale: 1.6, opacity: 0.55, duration: 0.4, ease: "sine.inOut", repeat: 9, yoyo: true },
-        4.48
-      );
-
-      // ---------------- Scene 4: stat burst — count-up, rapid-fire ----------------
-      // beat-locked: 8.93 / 9.87 / 10.80 (beat grid)
+      // ---------------- Scene 4: stat burst — ring fill + count-up ---------------- //
       const statDefs = [
-        { id: "#stat-1", valId: "#stat-1-val", t: 8.93, from: 0, to: 14200, suffix: "+", fmt: (n) => Math.round(n).toLocaleString("en-US") },
-        { id: "#stat-2", valId: "#stat-2-val", t: 9.87, from: 0, to: 112, suffix: "", fmt: (n) => { const s = Math.round(n); return Math.floor(s / 60) + "m " + (s % 60) + "s"; } },
-        { id: "#stat-3", valId: "#stat-3-val", t: 10.8, from: 0, to: 4.6, suffix: "", fmt: (n) => n.toFixed(1) + " / 5" },
+        { ring: "#ring-1", valId: "#stat-1-val", t: 8.93, from: 0, to: 14200, fmt: (n) => Math.round(n).toLocaleString("en-US") + "+" },
+        { ring: "#ring-2", valId: "#stat-2-val", t: 9.87, from: 0, to: 112, fmt: (n) => { const s = Math.round(n); return Math.floor(s / 60) + "m " + (s % 60) + "s"; } },
+        { ring: "#ring-3", valId: "#stat-3-val", t: 10.8, from: 0, to: 4.6, fmt: (n) => n.toFixed(1) + "/5" },
       ];
       statDefs.forEach((stat) => {
-        flashCut(stat.t, 0.12, 0.03);
-        tl.fromTo(stat.id, { opacity: 0, y: 30, scale: 0.85 }, { opacity: 1, y: 0, scale: 1, duration: 0.22, ease: "back.out(2.4)" }, stat.t);
+        colorFlash(stat.t, "var(--accent-2)", 0.22, 0.03);
         const counter = { v: stat.from };
+        const maxFrac = stat.to;
         tl.to(
           counter,
           {
@@ -771,34 +959,69 @@
             duration: 0.5,
             ease: "power2.out",
             onUpdate: () => {
-              document.querySelector(stat.valId).textContent = stat.fmt(counter.v) + (stat.suffix || "");
+              document.querySelector(stat.valId).textContent = stat.fmt(counter.v);
+              const frac = Math.min(1, counter.v / maxFrac);
+              document.querySelector(stat.ring).style.strokeDashoffset = RING_CIRC * (1 - frac);
             },
           },
           stat.t
         );
       });
+      tl.fromTo("#stat-1, #stat-2, #stat-3", { opacity: 0, y: 30, scale: 0.85 }, { opacity: 1, y: 0, scale: 1, duration: 0.22, ease: "back.out(2.4)", stagger: 0.94 }, 8.93);
 
-      // ---------------- Scenes 5-8: feature claims — rapid-fire, alternating tilt + underline draw ----------------
-      const feats = [
-        { t: 11.27, textSel: "#feat1-text .word", lineSel: "#feat1-line", tilt: -3 },
-        { t: 12.2, textSel: "#feat2-text .word", lineSel: "#feat2-line", tilt: 3 },
-        { t: 13.14, textSel: "#feat3-text .word", lineSel: "#feat3-line", tilt: -3 },
-        { t: 14.08, textSel: "#feat4-text .word", lineSel: "#feat4-line", tilt: 3 },
-      ];
-      feats.forEach((f) => {
-        flashCut(f.t, 0.2, 0.04);
-        tl.fromTo(
-          f.textSel,
-          { opacity: 0, x: f.tilt > 0 ? 70 : -70, rotation: f.tilt },
-          { opacity: 1, x: 0, rotation: 0, duration: 0.22, ease: "power4.out", stagger: 0.04 },
-          f.t
-        );
-        tl.fromTo(f.lineSel, { width: 0 }, { width: "70%", duration: 0.3, ease: "power2.out" }, f.t + 0.06);
+      // ---------------- Scenes 5-8: icon-driven feature claims ---------------- //
+
+      // Scene 5: MIC ON — soundwave bars pulse
+      wipeEdge(11.27, { color: "var(--accent-soft)", from: "100% 50%", to: "0% 50%", dur: 0.1 });
+      tl.fromTo("#core-mic", { opacity: 0, scale: 0.5, rotation: -20 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.2, ease: "back.out(2.6)" }, 11.27);
+      gsap.set(".wave-bar", { scaleY: 0.15 });
+      gsap.utils.toArray(".wave-bar").forEach((bar, i) => {
+        tl.to(bar, { scaleY: 1, duration: 0.12, ease: "power1.out", repeat: 3, yoyo: true }, 11.29 + i * 0.03);
       });
+      tl.fromTo("#feat1-eyebrow", { opacity: 0 }, { opacity: 1, duration: 0.14 }, 11.29);
+      tl.fromTo("#feat1-hero", { opacity: 0, x: 60, rotation: -3 }, { opacity: 1, x: 0, rotation: 0, duration: 0.18, ease: "power4.out" }, 11.34);
 
-      // ---------------- Scene 9: outro — letter-stagger logo slam, tagline, sub-line ----------------
-      // beat-locked: logo at 15.49s (strong_beat), tagline at 16.18s (onset_peak)
-      flashCut(15.02, 0.28, 0.05);
+      // Scene 6: REGION — radar ping rings
+      colorFlash(12.2, "var(--accent-2)", 0.4, 0.035);
+      tl.fromTo("#core-pin", { opacity: 0, y: -20, scale: 0.6 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "back.out(2.6)" }, 12.2);
+      tl.fromTo("#ping-1", { opacity: 0.8, scale: 0.4 }, { opacity: 0, scale: 1.3, duration: 0.5, ease: "power2.out" }, 12.22);
+      tl.fromTo("#ping-2", { opacity: 0.6, scale: 0.4 }, { opacity: 0, scale: 1.3, duration: 0.5, ease: "power2.out" }, 12.32);
+      tl.fromTo("#feat2-eyebrow", { opacity: 0 }, { opacity: 1, duration: 0.14 }, 12.22);
+      tl.fromTo("#feat2-hero", { opacity: 0, x: -60, rotation: 3 }, { opacity: 1, x: 0, rotation: 0, duration: 0.18, ease: "power4.out" }, 12.27);
+
+      // Scene 7: GRIEFERS — shield blocks the X
+      wipeEdge(13.14, { color: "var(--bg-elevated)", from: "50% 0%", to: "50% 100%", dur: 0.1 });
+      tl.fromTo("#core-shield", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(2.6)" }, 13.14);
+      tl.fromTo("#blocked-1", { opacity: 1, x: -70, y: -70, rotation: 0 }, { opacity: 0, x: -110, y: -110, rotation: -40, duration: 0.3, ease: "power2.in" }, 13.17);
+      tl.fromTo("#feat3-eyebrow", { opacity: 0 }, { opacity: 1, duration: 0.14 }, 13.17);
+      tl.fromTo("#feat3-hero", { opacity: 0, x: 60, rotation: -3 }, { opacity: 1, x: 0, rotation: 0, duration: 0.18, ease: "power4.out" }, 13.22);
+
+      // Scene 8: RUN IT BACK — reset arrow spins, mini squad orbits
+      colorFlash(14.08, "var(--accent)", 0.4, 0.035);
+      tl.fromTo("#core-reset", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(2.6)" }, 14.08);
+      tl.to("#core-reset svg", { rotation: 360, duration: 0.8, ease: "power1.inOut" }, 14.08);
+      const orbitDefs = [
+        { id: "#orbit-1", angle: 0 },
+        { id: "#orbit-2", angle: 120 },
+        { id: "#orbit-3", angle: 240 },
+      ];
+      orbitDefs.forEach((o, i) => {
+        tl.fromTo(o.id, { opacity: 0 }, { opacity: 1, duration: 0.1 }, 14.1 + i * 0.03);
+        tl.fromTo(
+          o.id,
+          { x: Math.cos((o.angle * Math.PI) / 180) * 95, y: Math.sin((o.angle * Math.PI) / 180) * 95 },
+          { rotation: 360, duration: 0.86, ease: "none", transformOrigin: `${-Math.cos((o.angle * Math.PI) / 180) * 95}px ${-Math.sin((o.angle * Math.PI) / 180) * 95}px` },
+          14.1
+        );
+      });
+      tl.fromTo("#feat4-eyebrow", { opacity: 0 }, { opacity: 1, duration: 0.14 }, 14.1);
+      tl.fromTo("#feat4-hero", { opacity: 0, x: -60, rotation: 3 }, { opacity: 1, x: 0, rotation: 0, duration: 0.18, ease: "power4.out" }, 14.15);
+
+      // ---------------- Scene 9: outro — ray burst, letter-stagger logo, tagline, sub-line ---------------- //
+      circleWipe(15.02, { color: "var(--accent)", dur: 0.2 });
+      for (let i = 1; i <= 8; i++) {
+        tl.fromTo(`#ray-${i}`, { opacity: 0.9, scaleY: 0 }, { opacity: 0, scaleY: 1, duration: 0.5, ease: "power2.out" }, 15.49 + i * 0.01);
+      }
       tl.fromTo(
         "#logo-text .letter",
         { opacity: 0, scale: 2.2, y: -40 },
