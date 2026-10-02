@@ -7,6 +7,7 @@
   <meta name="description" content="GG EZ matches competitive shooter players into squads that actually stick around. Rank-matched, mic-on, same region, no griefers." />
   <meta name="theme-color" content="#0a0a0f" />
   <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="assets/vendor/liquid-glass/glass.css" />
 </head>
 <body>
 
@@ -26,7 +27,7 @@
       </nav>
 
       <div class="nav-actions">
-        <a href="#cta" class="btn btn-primary btn-sm">Find Your Squad</a>
+        <a href="#cta" class="btn btn-primary btn-sm" id="navCtaBtn">Find Your Squad</a>
         <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
           <svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M228,128a12,12,0,0,1-12,12H40a12,12,0,0,1,0-24H216A12,12,0,0,1,228,128ZM40,76H216a12,12,0,0,0,0-24H40a12,12,0,0,0,0,24ZM216,180H40a12,12,0,0,0,0,24H216a12,12,0,0,0,0-24Z"/></svg>
         </button>
@@ -62,6 +63,7 @@
       <div class="hero-scrim" aria-hidden="true"></div>
       <div class="hero-glow" aria-hidden="true"></div>
       <div class="hero-grid" aria-hidden="true"></div>
+      <div id="heroOrbRoot" class="hero-orb" aria-hidden="true"></div>
 
       <div class="container">
         <div class="hero-copy">
@@ -70,7 +72,7 @@
           <p>GG EZ matches you with teammates who actually communicate, flank, and show up. Rank up, not rage quit.</p>
 
           <div class="hero-actions">
-            <a href="#cta" class="btn btn-primary">Find Your Squad</a>
+            <a href="#cta" class="btn btn-primary" id="heroCtaBtn">Find Your Squad</a>
             <a href="#how-it-works" class="btn btn-ghost">See How It Works</a>
           </div>
         </div>
@@ -165,7 +167,7 @@
                 <svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M128,60a44,44,0,1,0,44,44A44.05,44.05,0,0,0,128,60Zm0,64a20,20,0,1,1,20-20A20,20,0,0,1,128,124Zm0-112a92.1,92.1,0,0,0-92,92c0,77.36,81.64,135.4,85.12,137.83a12,12,0,0,0,13.76,0,259,259,0,0,0,42.18-39C205.15,170.57,220,136.37,220,104A92.1,92.1,0,0,0,128,12Zm31.3,174.71A249.35,249.35,0,0,1,128,216.89a249.35,249.35,0,0,1-31.3-30.18C80,167.37,60,137.31,60,104a68,68,0,0,1,136,0C196,137.31,176,167.37,159.3,186.71Z"/></svg>
               </span>
               <h3>Rank-Matched, Not Random</h3>
-              <p>We pair you with players inside your actual skill band, not whoever else happened to click queue at the same second.</p>
+              <p>You're matched against your actual skill band, not whoever else mashed queue at the same second you did.</p>
             </div>
           </article>
 
@@ -174,7 +176,7 @@
               <svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M176,116H152a12,12,0,0,1,0-24h24a12,12,0,0,1,0,24ZM104,92h-4V88a12,12,0,0,0-24,0v4H72a12,12,0,0,0,0,24h4v4a12,12,0,0,0,24,0v-4h4a12,12,0,0,0,0-24ZM244.76,202.94a40,40,0,0,1-61,5.35,7,7,0,0,1-.53-.56L144.67,164H111.33L72.81,207.73c-.17.19-.35.38-.53.56A40,40,0,0,1,4.62,173.05a1.18,1.18,0,0,1,0-.2L21,88.79A63.88,63.88,0,0,1,83.88,36H172a64.08,64.08,0,0,1,62.93,52.48,1.8,1.8,0,0,1,0,.19l16.36,84.17a1.77,1.77,0,0,1,0,.2A39.74,39.74,0,0,1,244.76,202.94ZM172,140a40,40,0,0,0,0-80H83.89A39.9,39.9,0,0,0,44.62,93.06a1.55,1.55,0,0,0,0,.21l-16.34,84a16,16,0,0,0,13,18.44,16.07,16.07,0,0,0,13.86-4.21L96.9,144.07a12,12,0,0,1,9-4.07Zm55.76,37.31-7-35.95a63.84,63.84,0,0,1-44.27,22.46l24.41,27.72a16,16,0,0,0,26.85-14.23Z"/></svg>
             </span>
             <h3>Mic-On Lobbies</h3>
-            <p>Every squad here talks. Filter out mute queues before you even join.</p>
+            <p>Everyone in your lobby actually has a mic on. No more wondering if the other four are even there.</p>
           </article>
 
           <article class="bento-item" data-reveal>
@@ -182,7 +184,7 @@
               <svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M128,60a44,44,0,1,0,44,44A44.05,44.05,0,0,0,128,60Zm0,64a20,20,0,1,1,20-20A20,20,0,0,1,128,124Zm0-112a92.1,92.1,0,0,0-92,92c0,77.36,81.64,135.4,85.12,137.83a12,12,0,0,0,13.76,0,259,259,0,0,0,42.18-39C205.15,170.57,220,136.37,220,104A92.1,92.1,0,0,0,128,12Z"/></svg>
             </span>
             <h3>Same Region, Same Hours</h3>
-            <p>Matched on ping and play-time overlap, not just which server region you picked.</p>
+            <p>We look at ping and the hours you're actually online, not just the server region you picked at signup.</p>
           </article>
 
           <article class="bento-item" data-reveal>
@@ -190,7 +192,7 @@
               <svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M208,36H48A20,20,0,0,0,28,56v56c0,54.29,26.32,87.22,48.4,105.29,23.71,19.39,47.44,26,48.44,26.29a12.1,12.1,0,0,0,6.32,0c1-.28,24.73-6.9,48.44-26.29,22.08-18.07,48.4-51,48.4-105.29V56A20,20,0,0,0,208,36Zm-4,76c0,35.71-13.09,64.69-38.91,86.15A126.28,126.28,0,0,1,128,219.38a126.14,126.14,0,0,1-37.09-21.23C65.09,176.69,52,147.71,52,112V60H204ZM79.51,144.49a12,12,0,1,1,17-17L112,143l47.51-47.52a12,12,0,0,1,17,17l-56,56a12,12,0,0,1-17,0Z"/></svg>
             </span>
             <h3>Griefers Get Filtered</h3>
-            <p>Community reports and no-show tracking keep toxic squads out of rotation.</p>
+            <p>Flame your team or ghost mid-match and enough reports pile up that you stop getting matched with anyone decent.</p>
           </article>
 
           <article class="bento-item" data-reveal>
@@ -198,7 +200,7 @@
               <svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M108,136a16,16,0,1,1-16-16A16,16,0,0,1,108,136Zm56-16a16,16,0,1,0,16,16A16,16,0,0,0,164,120Zm76.07,76.56-67,29.71A20.15,20.15,0,0,1,146,214.9l-8.54-23.13c-3.13.14-6.27.24-9.45.24s-6.32-.1-9.45-.24L110,214.9a20.19,20.19,0,0,1-27.08,11.37l-67-29.71A19.93,19.93,0,0,1,4.62,173.41L34.15,57A20,20,0,0,1,50.37,42.19l36.06-5.93A20.26,20.26,0,0,1,109.22,51.1l4.41,17.41c4.74-.33,9.52-.51,14.37-.51s9.63.18,14.37.51l4.41-17.41a20.25,20.25,0,0,1,22.79-14.84l36.06,5.93A20,20,0,0,1,221.85,57l29.53,116.38A19.93,19.93,0,0,1,240.07,196.56Z"/></svg>
             </span>
             <h3>Run It Back</h3>
-            <p>Good squad? Save it. Queue with the same four next session, no re-matching.</p>
+            <p>When a squad clicks, save it. Queue with the same four again next time instead of starting over from scratch.</p>
           </article>
         </div>
       </div>
@@ -309,7 +311,7 @@
             </div>
             <div class="rail-body">
               <h3>Get Matched In Minutes</h3>
-              <p>Our queue pairs you with four players in your bracket who are online right now and looking for the same thing.</p>
+              <p>Four players in your bracket, online right now, ready to queue. That's the match.</p>
             </div>
           </div>
 
@@ -729,12 +731,14 @@
     <!-- ============ FINAL CTA ============ -->
     <section class="section--tight" id="cta">
       <div class="cta" data-reveal>
+        <div id="ctaGradientRoot" class="cta-gradient" aria-hidden="true"></div>
+        <div class="cta-scrim" aria-hidden="true"></div>
         <div class="cta-glow" aria-hidden="true"></div>
         <div class="cta-inner">
           <h2 class="display">Stop Queuing With Strangers</h2>
           <p>Set your rank and roles once. GG EZ finds four people who actually want to win, not just vibes.</p>
           <div class="cta-actions">
-            <a href="#" class="btn btn-primary">Find Your Squad</a>
+            <a href="#" class="btn btn-primary" id="finalCtaBtn">Find Your Squad</a>
           </div>
         </div>
       </div>
@@ -822,6 +826,10 @@
     <button type="button" class="btn btn-primary btn-sm" id="cookieAccept">Got It</button>
   </div>
 
+  <script src="assets/vendor/liquid-glass/html2canvas.min.js"></script>
+  <script src="assets/vendor/liquid-glass/container.js"></script>
+  <script src="assets/vendor/liquid-glass/button.js"></script>
   <script src="assets/js/main.js"></script>
+  <script type="module" src="assets/r3f/bundle.js"></script>
 </body>
 </html>

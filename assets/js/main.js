@@ -6,6 +6,39 @@
     heroVideo.pause();
   }
 
+  // ---------------- Liquid glass CTA buttons ----------------
+  if (typeof Button !== "undefined" && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const glassTargets = [
+      { id: "navCtaBtn", size: 15 },
+      { id: "heroCtaBtn", size: 17 },
+      { id: "finalCtaBtn", size: 17 },
+    ];
+
+    glassTargets.forEach(({ id, size }) => {
+      const original = document.getElementById(id);
+      if (!original) return;
+
+      const href = original.getAttribute("href");
+      const label = original.textContent.trim();
+
+      const glass = new Button({
+        text: label,
+        size,
+        type: "pill",
+        tintOpacity: 0.32,
+        onClick: () => {
+          if (href && href !== "#") {
+            const target = document.querySelector(href);
+            if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        },
+      });
+
+      glass.element.classList.add("glass-cta");
+      original.replaceWith(glass.element);
+    });
+  }
+
   const toggle = document.getElementById("navToggle");
   const menu = document.getElementById("mobileMenu");
 
