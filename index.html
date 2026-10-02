@@ -21,7 +21,8 @@
       <nav class="nav-links" aria-label="Primary">
         <a href="#features">Features</a>
         <a href="#how-it-works">How It Works</a>
-        <a href="#community">Community</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
       </nav>
 
       <div class="nav-actions">
@@ -36,6 +37,8 @@
   <div class="mobile-menu" id="mobileMenu">
     <a href="#features">Features</a>
     <a href="#how-it-works">How It Works</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#faq">FAQ</a>
     <a href="#community">Community</a>
     <a href="#cta" class="btn btn-primary">Find Your Squad</a>
   </div>
@@ -201,6 +204,82 @@
       </div>
     </section>
 
+    <!-- ============ TRY THE MATCHER — interactive demo ============ -->
+    <section class="section" id="demo">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow">Try It Now</span>
+          <h2 class="display">See Your Match Before You Sign Up</h2>
+          <p>Pick your rank, your role, and your region. We'll show you what a real squad match looks like.</p>
+        </div>
+
+        <div class="demo-panel" data-reveal>
+          <form class="demo-form" id="demoForm" novalidate>
+            <div class="field" id="rankField">
+              <label for="demoRank">Your Rank</label>
+              <select id="demoRank">
+                <option value="">Select a rank</option>
+                <option value="Gold">Gold</option>
+                <option value="Platinum">Platinum</option>
+                <option value="Diamond">Diamond</option>
+                <option value="Immortal">Immortal</option>
+              </select>
+              <span class="field-error">Pick a rank to continue.</span>
+            </div>
+
+            <div class="field" id="roleField">
+              <label for="demoRole">Main Role</label>
+              <select id="demoRole">
+                <option value="">Select a role</option>
+                <option value="Duelist">Duelist</option>
+                <option value="Sentinel">Sentinel</option>
+                <option value="Controller">Controller</option>
+                <option value="Flex">Flex</option>
+              </select>
+              <span class="field-error">Pick a role to continue.</span>
+            </div>
+
+            <div class="field">
+              <label for="demoRegion">Region</label>
+              <select id="demoRegion">
+                <option value="NA East">NA East</option>
+                <option value="NA West">NA West</option>
+                <option value="EU West">EU West</option>
+                <option value="SEA">SEA</option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Run The Matcher</button>
+          </form>
+
+          <div class="demo-result">
+            <div class="demo-state demo-empty is-active" id="demoEmpty">
+              <svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M164.38,181.1a52,52,0,1,0-72.76,0,75.89,75.89,0,0,0-30,28.89,12,12,0,0,0,20.78,12,53,53,0,0,1,91.22,0,12,12,0,1,0,20.78-12A75.89,75.89,0,0,0,164.38,181.1ZM100,144a28,28,0,1,1,28,28A28,28,0,0,1,100,144Z"/></svg>
+              <p>Fill out the form and run the matcher to see a sample squad.</p>
+            </div>
+
+            <div class="demo-state demo-loading" id="demoLoading">
+              <span class="spinner" aria-hidden="true"></span>
+              <p>Matching you with a squad&hellip;</p>
+            </div>
+
+            <div class="demo-result-card" id="demoResultCard">
+              <div class="squad-card-top">
+                <span class="squad-card-title">Your Sample Squad</span>
+                <span class="live-pill"><span class="live-dot"></span>Matched</span>
+              </div>
+              <div class="roster" id="demoRoster"></div>
+              <div class="demo-code">
+                <span>Squad Code</span>
+                <strong id="demoCode">GGEZ-0000</strong>
+                <button type="button" class="btn btn-ghost btn-sm" id="demoCopyBtn">Copy</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ============ HOW IT WORKS — process rail ============ -->
     <section class="section" id="how-it-works">
       <div class="container">
@@ -244,6 +323,113 @@
               <h3>Queue Up And Clutch It</h3>
               <p>Jump into a party, warm up together, and go fight for the point. If it clicks, save the squad for next time.</p>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ COMPARISON ============ -->
+    <section class="section" id="compare">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <h2 class="display">GG EZ vs. Solo Queue</h2>
+          <p>Same game. Very different Tuesday night.</p>
+        </div>
+
+        <div class="compare-table" data-reveal>
+          <div class="compare-row is-head">
+            <div class="compare-cell">What You Get</div>
+            <div class="compare-cell">Solo Queue</div>
+            <div class="compare-cell is-us">GG EZ</div>
+          </div>
+          <div class="compare-row">
+            <div class="compare-cell is-label">Teammates who talk</div>
+            <div class="compare-cell"><span class="compare-mark is-no"><svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M208.49,191.51a12,12,0,0,1-17,17L128,145,64.49,208.49a12,12,0,0,1-17-17L111,128,47.51,64.49a12,12,0,0,1,17-17L128,111l63.51-63.52a12,12,0,0,1,17,17L145,128Z"/></svg></span></div>
+            <div class="compare-cell"><span class="compare-mark is-yes"><svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg></span></div>
+          </div>
+          <div class="compare-row">
+            <div class="compare-cell is-label">Matched by rank, not luck</div>
+            <div class="compare-cell"><span class="compare-mark is-no"><svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M208.49,191.51a12,12,0,0,1-17,17L128,145,64.49,208.49a12,12,0,0,1-17-17L111,128,47.51,64.49a12,12,0,0,1,17-17L128,111l63.51-63.52a12,12,0,0,1,17,17L145,128Z"/></svg></span></div>
+            <div class="compare-cell"><span class="compare-mark is-yes"><svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg></span></div>
+          </div>
+          <div class="compare-row">
+            <div class="compare-cell is-label">Griefer risk</div>
+            <div class="compare-cell"><span class="compare-mark is-no"><svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M208.49,191.51a12,12,0,0,1-17,17L128,145,64.49,208.49a12,12,0,0,1-17-17L111,128,47.51,64.49a12,12,0,0,1,17-17L128,111l63.51-63.52a12,12,0,0,1,17,17L145,128Z"/></svg></span></div>
+            <div class="compare-cell"><span class="compare-mark is-yes"><svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg></span></div>
+          </div>
+          <div class="compare-row">
+            <div class="compare-cell is-label">Same squad next session</div>
+            <div class="compare-cell"><span class="compare-mark is-no"><svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M208.49,191.51a12,12,0,0,1-17,17L128,145,64.49,208.49a12,12,0,0,1-17-17L111,128,47.51,64.49a12,12,0,0,1,17-17L128,111l63.51-63.52a12,12,0,0,1,17,17L145,128Z"/></svg></span></div>
+            <div class="compare-cell"><span class="compare-mark is-yes"><svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg></span></div>
+          </div>
+          <div class="compare-row">
+            <div class="compare-cell is-label">Time to find a game</div>
+            <div class="compare-cell">Instant, miserable</div>
+            <div class="compare-cell">~1m 52s, worth it</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PRICING ============ -->
+    <section class="section" id="pricing">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow">Plans</span>
+          <h2 class="display">Free To Start. Pro When You're Serious.</h2>
+          <p>No payment required to find your first squad. Upgrade later if you want priority matching.</p>
+        </div>
+
+        <div class="price-toggle" data-reveal id="priceToggle" role="group" aria-label="Billing period">
+          <button type="button" class="is-active" data-period="monthly">Monthly</button>
+          <button type="button" data-period="annual">Annual <span class="save-tag">Save 33%</span></button>
+        </div>
+
+        <div class="pricing-grid" data-reveal>
+          <article class="price-card">
+            <span class="price-name">Free</span>
+            <div class="price-amount">
+              <span class="value">$0</span>
+              <span class="period">/ forever</span>
+            </div>
+            <ul class="price-list">
+              <li><svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg>Rank-matched squads</li>
+              <li><svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg>Mic-on lobby filter</li>
+              <li><svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg>Standard matching speed</li>
+              <li><svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg>Griefer reporting</li>
+            </ul>
+            <a href="#cta" class="btn btn-ghost">Go Free</a>
+          </article>
+
+          <article class="price-card is-pro">
+            <span class="price-badge">Most Popular</span>
+            <span class="price-name">Pro</span>
+            <div class="price-amount">
+              <span class="value" data-price-monthly="$6" data-price-annual="$4">$6</span>
+              <span class="period">/ month</span>
+            </div>
+            <ul class="price-list">
+              <li><svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg>Everything in Free</li>
+              <li><svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg>Priority matching queue</li>
+              <li><svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg>Custom rank range</li>
+              <li><svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg>Squad history &amp; stats</li>
+            </ul>
+            <a href="#cta" class="btn btn-primary">Go Pro</a>
+          </article>
+        </div>
+
+        <div class="trust-row" data-reveal>
+          <div class="trust-badge">
+            <svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M208,36H48A20,20,0,0,0,28,56v56c0,54.29,26.32,87.22,48.4,105.29,23.71,19.39,47.44,26,48.44,26.29a12.1,12.1,0,0,0,6.32,0c1-.28,24.73-6.9,48.44-26.29,22.08-18.07,48.4-51,48.4-105.29V56A20,20,0,0,0,208,36Zm-4,76c0,35.71-13.09,64.69-38.91,86.15A126.28,126.28,0,0,1,128,219.38a126.14,126.14,0,0,1-37.09-21.23C65.09,176.69,52,147.71,52,112V60H204ZM79.51,144.49a12,12,0,1,1,17-17L112,143l47.51-47.52a12,12,0,0,1,17,17l-56,56a12,12,0,0,1-17,0Z"/></svg>
+            Fair-play verified
+          </div>
+          <div class="trust-badge">
+            <svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M176,116H152a12,12,0,0,1,0-24h24a12,12,0,0,1,0,24ZM104,92h-4V88a12,12,0,0,0-24,0v4H72a12,12,0,0,0,0,24h4v4a12,12,0,0,0,24,0v-4h4a12,12,0,0,0,0-24ZM244.76,202.94a40,40,0,0,1-61,5.35,7,7,0,0,1-.53-.56L144.67,164H111.33L72.81,207.73c-.17.19-.35.38-.53.56A40,40,0,0,1,4.62,173.05a1.18,1.18,0,0,1,0-.2L21,88.79A63.88,63.88,0,0,1,83.88,36H172a64.08,64.08,0,0,1,62.93,52.48,1.8,1.8,0,0,1,0,.19l16.36,84.17a1.77,1.77,0,0,1,0,.2A39.74,39.74,0,0,1,244.76,202.94Z"/></svg>
+            No payment lock-in
+          </div>
+          <div class="trust-badge">
+            <svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm8-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,136,176ZM112,84a12,12,0,1,1,12,12A12,12,0,0,1,112,84Z"/></svg>
+            24/7 report review
           </div>
         </div>
       </div>
@@ -300,6 +486,127 @@
       </div>
     </section>
 
+    <!-- ============ LEADERBOARD ============ -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <h2 class="display">Top Squads This Season</h2>
+          <p>Formed on GG EZ, climbed together. Updated weekly from ranked match results.</p>
+        </div>
+
+        <div class="leaderboard" data-reveal>
+          <div class="lb-row is-top">
+            <span class="lb-rank">01</span>
+            <div>
+              <div class="lb-name">Night Rotation</div>
+              <div class="lb-region">NA East &middot; 5-stack</div>
+            </div>
+            <span></span>
+            <div class="lb-winrate">
+              <span class="lb-winrate-label">Win Rate</span>
+              68%
+            </div>
+          </div>
+          <div class="lb-row">
+            <span class="lb-rank">02</span>
+            <div>
+              <div class="lb-name">Last Pick Legends</div>
+              <div class="lb-region">EU West &middot; 5-stack</div>
+            </div>
+            <span></span>
+            <div class="lb-winrate">
+              <span class="lb-winrate-label">Win Rate</span>
+              64%
+            </div>
+          </div>
+          <div class="lb-row">
+            <span class="lb-rank">03</span>
+            <div>
+              <div class="lb-name">Overtime Order</div>
+              <div class="lb-region">NA West &middot; 5-stack</div>
+            </div>
+            <span></span>
+            <div class="lb-winrate">
+              <span class="lb-winrate-label">Win Rate</span>
+              61%
+            </div>
+          </div>
+          <div class="lb-row">
+            <span class="lb-rank">04</span>
+            <div>
+              <div class="lb-name">No Scope No Brakes</div>
+              <div class="lb-region">SEA &middot; 5-stack</div>
+            </div>
+            <span></span>
+            <div class="lb-winrate">
+              <span class="lb-winrate-label">Win Rate</span>
+              59%
+            </div>
+          </div>
+          <div class="lb-row">
+            <span class="lb-rank">05</span>
+            <div>
+              <div class="lb-name">Fragile Alliance</div>
+              <div class="lb-region">NA East &middot; 5-stack</div>
+            </div>
+            <span></span>
+            <div class="lb-winrate">
+              <span class="lb-winrate-label">Win Rate</span>
+              57%
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BLOG / PATCH NOTES ============ -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <h2 class="display">Patch Notes &amp; Strategy</h2>
+          <p>What changed in the matcher, and how to get more out of your squad.</p>
+        </div>
+
+        <div class="blog-rail" data-reveal>
+          <article class="blog-card">
+            <div class="blog-card-art">
+              <svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M128,60a44,44,0,1,0,44,44A44.05,44.05,0,0,0,128,60Zm0,64a20,20,0,1,1,20-20A20,20,0,0,1,128,124Zm0-112a92.1,92.1,0,0,0-92,92c0,77.36,81.64,135.4,85.12,137.83a12,12,0,0,0,13.76,0,259,259,0,0,0,42.18-39C205.15,170.57,220,136.37,220,104A92.1,92.1,0,0,0,128,12Z"/></svg>
+            </div>
+            <div class="blog-card-body">
+              <span class="blog-card-tag">Patch Notes</span>
+              <h3>How Rank-Matching Actually Scores You</h3>
+              <p>We broke down the exact signals the matcher weighs beyond your rank badge.</p>
+              <a href="#" class="read-more">Read More <svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M184.49,136.49l-80,80a12,12,0,0,1-17-17L159,128,87.51,56.49a12,12,0,1,1,17-17l80,80A12,12,0,0,1,184.49,136.49Z"/></svg></a>
+            </div>
+          </article>
+
+          <article class="blog-card">
+            <div class="blog-card-art">
+              <svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M176,116H152a12,12,0,0,1,0-24h24a12,12,0,0,1,0,24ZM104,92h-4V88a12,12,0,0,0-24,0v4H72a12,12,0,0,0,0,24h4v4a12,12,0,0,0,24,0v-4h4a12,12,0,0,0,0-24Z"/></svg>
+            </div>
+            <div class="blog-card-body">
+              <span class="blog-card-tag">Strategy</span>
+              <h3>Mic Etiquette For First-Time Squads</h3>
+              <p>Callouts, call-ins, and why the first five minutes decide the whole match.</p>
+              <a href="#" class="read-more">Read More <svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M184.49,136.49l-80,80a12,12,0,0,1-17-17L159,128,87.51,56.49a12,12,0,1,1,17-17l80,80A12,12,0,0,1,184.49,136.49Z"/></svg></a>
+            </div>
+          </article>
+
+          <article class="blog-card">
+            <div class="blog-card-art">
+              <svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M208,36H48A20,20,0,0,0,28,56v56c0,54.29,26.32,87.22,48.4,105.29,23.71,19.39,47.44,26,48.44,26.29a12.1,12.1,0,0,0,6.32,0c1-.28,24.73-6.9,48.44-26.29,22.08-18.07,48.4-51,48.4-105.29V56A20,20,0,0,0,208,36Z"/></svg>
+            </div>
+            <div class="blog-card-body">
+              <span class="blog-card-tag">Product</span>
+              <h3>Why We Killed The Mute Queue</h3>
+              <p>The data behind dropping silent lobbies from the default matching pool.</p>
+              <a href="#" class="read-more">Read More <svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M184.49,136.49l-80,80a12,12,0,0,1-17-17L159,128,87.51,56.49a12,12,0,1,1,17-17l80,80A12,12,0,0,1,184.49,136.49Z"/></svg></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <!-- ============ PLATFORMS ============ -->
     <section class="section" id="community">
       <div class="container">
@@ -325,6 +632,96 @@
             <svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M218.12,209.56l-61-95.8,59.72-65.69a12,12,0,0,0-17.76-16.14L143.81,92.77,106.12,33.56A12,12,0,0,0,96,28H48A12,12,0,0,0,37.88,46.44l61,95.8L39.12,207.93a12,12,0,1,0,17.76,16.14l55.31-60.84,37.69,59.21A12,12,0,0,0,160,228h48a12,12,0,0,0,10.12-18.44Z"/></svg>
             X
           </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow">FAQ</span>
+          <h2 class="display">Questions, Answered</h2>
+        </div>
+
+        <div class="faq-list" data-reveal>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Is GG EZ free to use?
+              <svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z"/></svg>
+            </button>
+            <div class="faq-answer">
+              <p>Yes. Rank-matched squads, mic-on filtering, and griefer reporting are free forever. Pro adds priority matching and squad history for players who queue daily.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              How does rank-matching actually work?
+              <svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z"/></svg>
+            </button>
+            <div class="faq-answer">
+              <p>We weigh your current rank, your role, your active hours, and ping to nearby players in queue. It's closer to matchmaking than a Discord server full of strangers.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              What if my squad doesn't click?
+              <svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z"/></svg>
+            </button>
+            <div class="faq-answer">
+              <p>Queue again, no cooldown. Most players get a squad worth keeping within two or three matches, but there's no commitment past a single session.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Do I need Discord to use GG EZ?
+              <svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z"/></svg>
+            </button>
+            <div class="faq-answer">
+              <p>No, but most squads move into voice there once matched. GG EZ handles the matching; your squad picks whatever voice app it already uses.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              How do you handle griefers?
+              <svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z"/></svg>
+            </button>
+            <div class="faq-answer">
+              <p>Community reports and no-show tracking feed a rolling trust score. Players with a low score get filtered out of the matching pool, not just warned.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Can I queue with friends I already have?
+              <svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z"/></svg>
+            </button>
+            <div class="faq-answer">
+              <p>Yes. Queue as a partial group and GG EZ fills the remaining slots with matched players, same rank logic as a full solo queue.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ NEWSLETTER ============ -->
+    <section class="section--tight">
+      <div class="container">
+        <div class="newsletter" data-reveal>
+          <h2 class="display">Get Patch Notes In Your Inbox</h2>
+          <p>Matcher updates and season changes. No spam, unsubscribe any time.</p>
+
+          <form class="newsletter-form" id="newsletterForm" novalidate>
+            <div class="newsletter-row">
+              <input type="email" id="newsletterEmail" placeholder="you@email.com" aria-label="Email address" />
+              <button type="submit" class="btn btn-primary">Subscribe</button>
+            </div>
+            <div class="newsletter-status" id="newsletterStatus" role="status"></div>
+          </form>
         </div>
       </div>
     </section>
@@ -375,8 +772,18 @@
           <h4>Product</h4>
           <ul>
             <li><a href="#features">Features</a></li>
+            <li><a href="#demo">Try The Matcher</a></li>
             <li><a href="#how-it-works">How It Works</a></li>
-            <li><a href="#community">Community</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="#">Squad Leaderboard</a></li>
+            <li><a href="#">Patch Notes</a></li>
+            <li><a href="#">Status</a></li>
           </ul>
         </div>
 
@@ -384,7 +791,7 @@
           <h4>Community</h4>
           <ul>
             <li><a href="#">Discord Server</a></li>
-            <li><a href="#">Squad Leaderboard</a></li>
+            <li><a href="#faq">FAQ</a></li>
             <li><a href="#">Report A Player</a></li>
           </ul>
         </div>
@@ -405,6 +812,15 @@
       </div>
     </div>
   </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg class="icon" viewBox="0 0 256 256" fill="currentColor"><path d="M208.49,120.49a12,12,0,0,1-17,0L140,69V216a12,12,0,0,1-24,0V69L64.49,120.49a12,12,0,0,1-17-17l72-72a12,12,0,0,1,17,0l72,72A12,12,0,0,1,208.49,120.49Z"/></svg>
+  </button>
+
+  <div class="cookie-banner" id="cookieBanner">
+    <p>GG EZ uses local storage to keep your matcher picks and dismiss this banner. No tracking, no ads.</p>
+    <button type="button" class="btn btn-primary btn-sm" id="cookieAccept">Got It</button>
+  </div>
 
   <script src="assets/js/main.js"></script>
 </body>
